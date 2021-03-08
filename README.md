@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+##  Motocycle-Fans app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description 
 
-## Available Scripts
+Pagina dirigida  a los apasionados de las motocicletas
 
-In the project directory, you can run:
+# User Stories
 
-### `npm start`
+- **Registrarse:** Como anon puedo registrarme en la aplicación para poder empezar a crear mis      propias motocicletas.
+- **Inicio de sesión:** Como usuario, puedo iniciar sesión en la aplicación para poder ver mis motocicletas y administrarlas.
+- **Cerrar sesión:** como usuario, puedo cerrar la sesión de la aplicación para que nadie más pueda usarla.
+- Ver motocicletas Como usuario, quiero ver una lista de mi proyecto y también una vista de cada proyecto individualmente
+- **Agregar:**  Como usuario puedo agregar un proyecto
+- **Editar:**  Como usuario puedo editar un motocicletas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ #  Backlog
+  - eliminar perfil de usuario
+  - editar tareas
+  - Crear reuniones entre usuarios
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Client / Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## React Router Routes (React App)
+| Path                      | Componente            | Permisos                 | Comportamiento                                                     |
+| ------------------------- | -------------------- | --------------------------- | ------------------------------------------------------------ |
+| `/`                       | Pagina de inicio            | público `<Route>`            | Página de inicio                                                    |
+| `/signup`                 | Pagina de Registro           | solo anonimo `<AnonRoute>`    | Formulario de Registro, link to login, navigate to homepage after signup |
+| `/login`                  | Pagina inciar sesion           | solo anonimo `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login |
+| `/motocycles`               | Pagina Lista de Motocicletas    | solo usuario `<PrivateRoute>`  | Página que muestra todos los motocicletas del usuario en una lista.                |
+| `/motocycles/add`           | Formulario agregar Motocicleta      | solo usuario  `<PrivateRoute>`  |Formulario para crear una motocicleta, agrega una motocicleta nueva y redirige a la lista de motocicletas, una vez que se ha agregado la motocicleta |
+| `/motocycles/:id`           | Pagina de detalle de una motocicleta   | solo usuario `<PrivateRoute>`  | Página con los detalles de una moto y dos botones, uno para editar y otro para eliminar una moto  |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- HomePage
+ 
+- LoginPage
 
-### `npm run eject`
+- SignupPage
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- MotocycleListPage  
+  * Motocycle Card
+  * Delete Motocycle Button
+  * <Link>  AddProjectForm
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  * Add Motocycle Form
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Routes
+  * AnonRoute
+  * PrivateRoute
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Common
+  * Navbar 
 
-## Learn More
+## Services
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Auth Service
+  - authApi.login(user)
+  - authApi.signup(user)
+  - authApi.logout()
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Motocycle Service
+  - MotocycleApi.list()
+  - MotocycleApi.addMotocycle(motocycle)
+  - MotocycleApi.getMotocycleDetails(motocycleId)
+  - MotocycleApi.editMotocycle(motocycleId, motocycleBody)
+  - MotocycleApi.deleteMotocycle(motocycleId)
 
-### Code Splitting
+# Server / Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Models
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**User model**
 
-### Making a Progressive Web App
+```javascript
+{
+  username: {type: String, required: true },
+  email: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  Motocycles: [ { type: mongoose.Schema.Types.ObjectId, ref: "Motocycle" } ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Motocycle model**
 
-### Advanced Configuration
+```javascript
+{
+  Marca: String,
+  Año: Number,
+  Motor: String,
+  image: String,
+  description: String,
+  
+},
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## API Endpoints (backend routes)
 
-### Deployment
+| Method | Endpoint         | Parameters                         | Return Value |
+| ------ | ---------------- | ---------------------------------- | ------------ |
+| POST   | `/auth/login`    | username, password                 | Usuario ha iniciado sesion |
+| POST   | `/auth/signup`   | username, password, email          | Usuario creado |
+| POST   | `/auth/logout`   |                                    | Usuario ha terminado sesion   |
+| GET    | `/api/motocycles`                                     | Lista de Motocicletas|
+| GET    | `/api/motocycles/:motocycleId`| {id}                       | Muestra una motocicleta en detalle |
+| POST   | `/api/motocycles` | {Marca, Año,Motor,image, description} | Crea y guarda una motocicleta en la base de datos  
+| PUT    | `/api/motocycles/:motocycleId` | {Marca, Año,Motor,image, description}              |  Edita una motocicleta en la base de datos      
+| DELETE | `/api/motocycles/:motocycleId` | id                   | Elimina una motocicleta    |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Trello/Kanban
+
+[Link to your trello board](https://trello.com/b/KniClov1/moto)
+
+### Git
+
+The url to your repository and to your deployed project
+
+### Slides

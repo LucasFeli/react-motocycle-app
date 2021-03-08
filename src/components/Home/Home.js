@@ -1,5 +1,14 @@
+import React, {useState} from 'react';
+
+import "./Home"
+
+
 const Home = () => {
-    return (  <> </>);
+        return (  <> 
+     
+    </>
+    
+    );
 }
  
 export default Home;
