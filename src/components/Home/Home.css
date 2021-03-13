@@ -1,35 +1,49 @@
-.slider{
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.home {
+  width: 50%;
+  margin: 10rem auto;
+  height: 570px;
 }
 
-image{
-    width: 1000px;
-    height: 600px;
-    border-radius: 10px;
+.slide img {
+  width: 20rem;
+  margin: 0 auto;
 }
 
-.right-arrow{
-    position: absolute;
-    top:50%;
-    right: 32px;
-    font-size: 3rem ;
-    color: antiquewhite;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
+.slide {
+  transform: scale(0.2);
+  transition: transform 300ms;
+  opacity: 0.5;
 }
 
-.left-arrow{
-    position: absolute;
-    top:50%;
-    right: 32px;
-    font-size: 3rem ;
-    color: antiquewhite;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
+.activeSlide {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.arrow {
+  background-color: #fff;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow svg {
+  transition: color 300ms;
+}
+
+.arrow svg:hover {
+  color: #68edff;
+}
+
+.next {
+  right: 0%;
+  top: 50%;
+}
+
+.prev {
+  left: 0%;
+  top: 50%;
 }

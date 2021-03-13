@@ -5,14 +5,15 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./context/AuthContext";
 import MotocycleProvider from "./context/motocycleContext";
-
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <MotocycleProvider>
-        <App />
+      <AuthProvider>
+          <App />
+         </AuthProvider>
       </MotocycleProvider>
     </Router>
   </React.StrictMode>,

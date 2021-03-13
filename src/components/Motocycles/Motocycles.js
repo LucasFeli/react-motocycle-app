@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from "react-router-dom";
 import {useMotocycle} from "../../context/motocycleContext"
 
 const Motocycles = () => {
@@ -15,6 +16,7 @@ const Motocycles = () => {
                  <p>Marca: {motocycle.marca}</p>
                  <p>Modelo : {motocycle.modelo}</p>
                  <p>Motor : {motocycle.motor}</p>
+                 <Link to={`/motocycles/${motocycle._id}`}>More details</Link> 
              </div>
              
     )}
