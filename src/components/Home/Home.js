@@ -1,54 +1,20 @@
-import "./Home.css";
+
 import React, { useState } from "react";
 import Slider from "react-slick";
 import Honda from "./assets/Honda.jpg";
 import Suzuki from "./assets/suzuki.jpg";
 import Ktm from "./assets/Ktm.jpg";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-
-
-const images = [Honda, Suzuki, Ktm];
+import "./Home.css";
 
 const Home = () => {
-  const NextArrow = ({ onClick }) => {
-    return (
-      <div className="arrow next" onClick={onClick}>
-        <FaArrowRight />
-      </div>
-    );
-  };
-
-  const PrevArrow = ({ onClick }) => {
-    return (
-      <div className="arrow prev" onClick={onClick}>
-        <FaArrowLeft />
-      </div>
-    );
-  };
-
-  const [imageIndex, setImageIndex] = useState(0);
-
-  const settings = {
-    infinite: true,
-    lazyLoad: true,
-    speed: 300,
-    slidesToShow: 3,
-    centerMode: true,
-    centerPadding: 0,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    beforeChange: (current, next) => setImageIndex(next),
-  };
-
+ 
   return (
-    <div className="home">
-      <Slider {...settings}>
-        {images.map((img, idx) => (
-          <div className={idx === imageIndex ? "slide activeSlide" : "slide"}>
-             <img src={img} alt={img} />
-          </div>
-        ))}
-      </Slider>
+    <div >
+       <h1>Carrousel</h1>
+      <img src="../assets/suzuki.jpg"/>
+      <span ><img src="./assets/Ktm.jpg"/></span>
+      <span ><img src="../assets/Honda.jpg"/></span>
+    
     </div>
   );
 }

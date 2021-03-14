@@ -1,6 +1,8 @@
 import React from "react"
 import {AuthContext} from "../../context/AuthContext"
 import {Redirect} from "react-router-dom"
+import "./Form.css"
+
 export function Login() {
     const auth = React.useContext(AuthContext)
     const [state, setState] = React.useState({email: "", password: ""})
@@ -18,32 +20,36 @@ export function Login() {
         return <Redirect to="/" />;
       }
     return (
+      <section className="fondo">
+    <div className="form-container">
+     <h1>Log in</h1> 
         <form
         onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "500px",
-          margin: "10px auto",
-        }}
-      >
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          id="email"
-          value={state.email}
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={state.password}
-          onChange={handleChange}
-        />
-        <button type="submit">Login</button>
-      </form>
+        >
+       <div className ="control">
+      <label htmlFor="email"><h3>Email</h3></label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        value={state.email}
+        onChange={handleChange}
+      />
+      </div>
+       <div className ="control">
+      <label htmlFor="password"><h3>Password</h3></label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        value={state.password}
+        onChange={handleChange}
+      /></div>
+      <div className ="control">
+      <input type="submit" value ="log in" />
+      </div>
+    </form>
+    </div>
+    </section>
     )
 }
