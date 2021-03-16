@@ -1,14 +1,25 @@
 import React from 'react';
-
-export const HomeImages
- = [
-    {
-        image: "https://i.blogs.es/87c510/yamaha-tmax-560-2020--2/1366_2000.jpg",
- },
- {
-    image:"http://suprememotos.com/uploads/postfotos/suzuki-a50p-ap50-blue-uk-model-sixteener-special-sports-moped-1.JPG",
-},
-{
-    image: "https://www.ktm.com/ktmgroup-storage/PHO_BIKE_90_RE_300-EXC-TPI-Erzberg-MY21-90-Right_%23SALL_%23AEPI_%23V1.png",
-},
-]
+import Swiper from 'react-id-swiper';
+import Honda from "./assets/Honda.jpg";
+const Parallax = () => {
+    const params = {
+        effect: 'cube',
+        grabCursor: true,
+        cubeEffect: {
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+          shadowScale: 0.94,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+        }
+      }
+      return (
+        <Swiper {...params}>
+          <div style={{ backgroundImage:'url(https://picsum.photos/id/237/200/300)' }} />
+          
+        </Swiper>
+      )
+    };
+export default Parallax;

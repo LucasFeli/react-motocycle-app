@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
-import MotocycleProvider from "./context/motocycleContext";
+
 import Home from "./components/Home/Home";
+import HomeImages from "./components/Home/HomeImages"
 import Motocycle from "./components/Motocycle/Motocycle";
 import Motocycles from "./components/Motocycles/Motocycles";
 import NewMotocycle from "./components/NewMotocycle/NewMotocycle";
@@ -22,6 +23,9 @@ function App() {
       <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route exact path="/proof">
+        <HomeImages />
       </Route>
       <Route exact path="/motocycles">
        <Motocycles />

@@ -10,6 +10,11 @@ export function Navbar() {
           <Link to="/">Go home</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">signup</Link>
+          <Link to="/motocycles">List of Motocycles</Link>
+          <Link to="/motocycles/create">Form of Motocycles</Link>
+          <Link to="/motocycles/update">Update</Link>
+          <Link to="/motocycles/:motocycleId">motocycle detail</Link>
+
          
           <Logout/>
       </div>
