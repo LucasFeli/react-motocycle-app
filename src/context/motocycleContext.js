@@ -1,10 +1,12 @@
 import React from "react";
-import { getMotocycles as getMotocyclesService,createMotocycle as createMotocycleService, updateMotocycle as updateMotocycleService, deleteMotocycle as deleteMotocycleService} from "../service/motocycle.service";
+import { getMotocycles as getMotocyclesService,createMotocycle as createMotocycleService, deleteMotocycle as deleteMotocycleService} from "../service/motocycle.service";
 
 export const MotocycleContext = React.createContext({});
 
 function MotocycleProvider({ children }) {
   const [motocycle, setMotocycle] = React.useState([]);
+  
+  
   const getMotocycles = async () => {
     const { data } = await getMotocyclesService();
     console.log("data", data)

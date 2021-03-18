@@ -1,85 +1,51 @@
 import React, { useState } from "react";
-import Swiper from 'react-id-swiper'
-import 'swiper/swiper-bundle.css'
 import Honda from "./assets/Honda.jpg";
-import Suzuki from "./assets/suzuki.jpg";
-import Ktm from "./assets/Ktm.jpg";
+import {Carousel} from "react-bootstrap"
+import BMW from "./assets/bmw.jpg";
+import Chopper from "./assets/chopper2.jpeg";
+import Hdv from "./assets/HDV.jpeg"
 import "./Home.css";
 
-const HeroSliderConfigs = {
-  containerClass: 'swiper-container hero-slider',
-  parallax: true,
-  centeredSlides: true,
-  grabCursor: true,
-  speed: 500,
-  spaceBetween: 0,
-  effect: 'coverflow'
-};
+
 
 const Home = () => {
 
-  const [parallaxSwiper, setParallaxSwiper] = useState(null);
-  const parallaxAmount = parallaxSwiper ? parallaxSwiper.width * 0.95 : 0;
-  const parallaxOpacity = 0.5;
   return (
-    
-    <Swiper {...HeroSliderConfigs} getSwiper={setParallaxSwiper}>
-    <div className="hero-slide">
-      <div
-        className="slide-image"
-        data-swiper-parallax={parallaxAmount}
-        data-swiper-parallax-opacity={parallaxOpacity}
-      >
-        <img src={Honda} alt="image1"></img>
-      </div>
-      <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-        <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-        <p className="mb-5 small">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-          ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-          ab quia neque, porro laborum error, autem facilis voluptates
-          laboriosam?
-        </p>
-      </div>
-    </div>
-    <div className="hero-slide">
-      <div
-        className="slide-image"
-        data-swiper-parallax={parallaxAmount}
-        data-swiper-parallax-opacity={parallaxOpacity}
-      >
-        <img src={Ktm} alt="image2"></img>
-      </div>
-      <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-        <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-        <p className="mb-5 small">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-          ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-          ab quia neque, porro laborum error, autem facilis voluptates
-          laboriosam?
-        </p>
-      </div>
-    </div>
-    <div className="hero-slide">
-      <div
-        className="slide-image"
-        data-swiper-parallax={parallaxAmount}
-        data-swiper-parallax-opacity={parallaxOpacity}
-      >
-        <img src={Suzuki} alt="image3"></img>
-      </div>
-      <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-        <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-        <p className="mb-5 small">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-          ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-          ab quia neque, porro laborum error, autem facilis voluptates
-          laboriosam?
-        </p>
-      </div>
-    </div>
-  </Swiper>
-    
+    <Carousel>
+  <Carousel.Item interval={1000}>
+    <img
+      className="d-block w-100"
+      src={Chopper}
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item interval={500}>
+    <img
+      className="d-block w-100"
+      src={Hdv}
+      alt="Second slide"
+    />
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={BMW}
+      alt="Third slide"
+    />
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
   );
 }
 

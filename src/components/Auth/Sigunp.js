@@ -5,7 +5,7 @@ import "./Form.css"
 
 
 
-export function Signup({ onSubmit }) {
+ const Signup = ({ onSubmit }) => {
   const auth = React.useContext(AuthContext);
   const [state, setState] = React.useState({ username:"",email: "", password: "" });
   const [redirect, setRedirect] = React.useState(false);
@@ -65,3 +65,5 @@ export function Signup({ onSubmit }) {
     </section>
   );
 }
+
+export default Signup

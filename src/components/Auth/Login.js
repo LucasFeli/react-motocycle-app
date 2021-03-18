@@ -3,7 +3,7 @@ import {AuthContext} from "../../context/AuthContext"
 import {Redirect} from "react-router-dom"
 import "./Form.css"
 
-export function Login() {
+ const Login = () => {
     const auth = React.useContext(AuthContext)
     const [state, setState] = React.useState({email: "", password: ""})
     const [redirect, setRedirect] = React.useState(false);
@@ -53,3 +53,5 @@ export function Login() {
     </section>
     )
 }
+
+export default Login

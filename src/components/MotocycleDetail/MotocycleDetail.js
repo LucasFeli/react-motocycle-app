@@ -1,4 +1,5 @@
 import React from "react";
+import * as ReactBootForm from 'react-bootstrap'
 import { useParams, Link } from "react-router-dom";
 import { deleteMotocycle, getMotocycle } from "../../service/motocycle.service";
 const MotocycleDetail = () => {

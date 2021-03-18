@@ -1,6 +1,6 @@
 import React from "react";
 import {useMotocycle} from "../../context/motocycleContext"
-import { useParams, Link } from "react-router-dom";
+
 
 const MotocycleUpdate = () => {
     const initialState = {marca:"", modelo:""}
