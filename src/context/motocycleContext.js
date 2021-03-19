@@ -1,46 +1,41 @@
 import React from "react";
-import { getMotocycles as getMotocyclesService,createMotocycle as createMotocycleService, deleteMotocycle as deleteMotocycleService} from "../service/motocycle.service";
+import {
+  getMotocycles as getMotocyclesService,
+  createMotocycle as createMotocycleService,
+  deleteMotocycle as deleteMotocycleService,
+} from "../service/motocycle.service";
 
 export const MotocycleContext = React.createContext({});
 
 function MotocycleProvider({ children }) {
-  const [motocycle, setMotocycle] = React.useState([]);
-  
-  
+  const [motocycles, setMotocycles] = React.useState([]);
+
   const getMotocycles = async () => {
     const { data } = await getMotocyclesService();
-    console.log("data", data)
-    setMotocycle(data);
+    setMotocycles(data);
   };
 
- 
+  const createMotocycle = async (motocycle) => {
+    const { data: newMotocycle } = await createMotocycleService(motocycle);
+    setMotocycles((state) => state.concat(newMotocycle));
+  };
 
-const createMotocycle = async (motocycle) =>{
-  const {newMotocycle} = await createMotocycleService(motocycle);
-  setMotocycle((state) => state.concat(newMotocycle))
-};
-
-//const updateMotocycle = async (motocycleId) =>{
-  //const {updateMotocycle} = await updateMotocycleService(motocycle);
- // setMotocycle()
-//};
-
-const deleteMotocycle = async (motocycleId) =>{
- await deleteMotocycleService(motocycle._id);
-
-  setMotocycle((state) => state.filter((moto) => moto._id !== motocycleId))
-}
-
+  const deleteMotocycle = async (motocycleId) => {
+    await deleteMotocycleService(motocycleId);
+    setMotocycles((state) => state.filter((moto) => moto._id !== motocycleId));
+  };
 
   return (
-    <MotocycleContext.Provider value={{ getMotocycles, motocycle, createMotocycle,  deleteMotocycle  }}>
+    <MotocycleContext.Provider
+      value={{ getMotocycles, motocycles, createMotocycle, deleteMotocycle }}
+    >
       {children}
     </MotocycleContext.Provider>
   );
 }
 
-export function useMotocycle(){
-  return React.useContext(MotocycleContext)
+export function useMotocycle() {
+  return React.useContext(MotocycleContext);
 }
 
 export default MotocycleProvider;
