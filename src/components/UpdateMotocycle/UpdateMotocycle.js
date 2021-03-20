@@ -1,18 +1,22 @@
 import React from "react";
 import { useMotocycle } from "../../context/motocycleContext";
+import { useParams, Link, useHistory } from "react-router-dom";
 
 const MotocycleUpdate = () => {
   const initialState = { marca: "", modelo: "" };
   const [update, setUpdate] = React.useState(initialState);
 
   const { updateMotocycle } = useMotocycle();
+  const { motocycleId } = useParams();
+  const {push} = useHistory()
 
   return (
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        await updateMotocycle(update);
-        setUpdate(initialState);
+        await updateMotocycle(motocycleId,update);
+        
+        push(`/motocycles/${motocycleId}`);
       }}
     >
       <label>Marca:</label>

@@ -9,7 +9,9 @@ export const getMotocycles =()=> motocycleApi.get("/motocycles");
 
 export const getMotocycle =(motocycleId)=> motocycleApi.get(`/motocycles/${motocycleId}`);
 
-export const createMotocycle =(body,file)=> motocycleApi.post("/motocycles/create", body, file);
+export const createMotocycle =(body)=> motocycleApi.post("/motocycles/create", body);
+
+export const uploadFileService =(file)=>motocycleApi.post("/motocycles/upload", file)
 
 export const updateMotocycle =(motocycleId, body)=> motocycleApi.patch(`/motocycles/${motocycleId}`, body);
 

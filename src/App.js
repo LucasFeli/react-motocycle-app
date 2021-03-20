@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/motocycles/create">
         <NewMotocycle />
       </Route>
-      <Route exact path="/motocycles/update">
+      <Route exact path="/motocycles/:motocycleId/update">
         <UpdateMotocycle />
       </Route>
       <Route exact path="/motocycles/:motocycleId">

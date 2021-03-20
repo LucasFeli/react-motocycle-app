@@ -1,6 +1,6 @@
 import React from "react";
 import { useMotocycle } from "../../context/motocycleContext";
-
+import {uploadFileService} from "../../service/motocycle.service"
 const NewMotocycle = () => {
   const initialState = { marca: "", modelo: "", image: "" };
   const [state, setState] = React.useState(initialState);
@@ -10,8 +10,8 @@ const NewMotocycle = () => {
     console.log("e.target", e.target.files[0]);
 
     const uploadData = new FormData();
-    uploadData.append("imageUrl", e.target.files[0]);
-    await createMotocycle(state);
+    uploadData.append("image", e.target.files[0]);
+    await uploadFileService(uploadData);
     setState(initialState);
   };
 

@@ -22,7 +22,7 @@ const MotocycleDetail = () => {
       <p>Marca: {motocycle.marca}</p>
       <p>Modelo : {motocycle.modelo}</p>
       <p>Motor : {motocycle.motor}</p>
-      <Link to="/motocycles/update">Update Moto</Link>
+      <Link to={`/motocycles/${motocycleId}/update`}>Update Moto</Link>
       <button onClick={handleDelete}>Delete</button>
     </div>
   );

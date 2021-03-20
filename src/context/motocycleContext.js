@@ -3,6 +3,7 @@ import {
   getMotocycles as getMotocyclesService,
   createMotocycle as createMotocycleService,
   deleteMotocycle as deleteMotocycleService,
+  updateMotocycle as updateMotocycleService
 } from "../service/motocycle.service";
 
 export const MotocycleContext = React.createContext({});
@@ -20,6 +21,12 @@ function MotocycleProvider({ children }) {
     setMotocycles((state) => state.concat(newMotocycle));
   };
 
+  const updateMotocycle = async(motocycleId, motocycle )=> {
+    const {data:updatedMotocycle} = await updateMotocycleService (motocycleId, motocycle )
+   // setMotocycles(())
+
+  }
+
   const deleteMotocycle = async (motocycleId) => {
     await deleteMotocycleService(motocycleId);
     setMotocycles((state) => state.filter((moto) => moto._id !== motocycleId));
@@ -27,7 +34,7 @@ function MotocycleProvider({ children }) {
 
   return (
     <MotocycleContext.Provider
-      value={{ getMotocycles, motocycles, createMotocycle, deleteMotocycle }}
+      value={{ getMotocycles, motocycles, createMotocycle,updateMotocycle, deleteMotocycle }}
     >
       {children}
     </MotocycleContext.Provider>

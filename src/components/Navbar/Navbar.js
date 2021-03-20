@@ -28,10 +28,7 @@ export function Navbar() {
             <ReactBootStrap.NavDropdown.Item>
               <Link to="/motocycles">List of Motocycles</Link>
             </ReactBootStrap.NavDropdown.Item>
-            <ReactBootStrap.NavDropdown.Item>
-              <Link to="/motocycles/:motocycleId">Motocycle detail</Link>
-            </ReactBootStrap.NavDropdown.Item>
-            <ReactBootStrap.NavDropdown.Item>
+             <ReactBootStrap.NavDropdown.Item>
               <Link to="/motocycles/create">Create your Motocycle</Link>
             </ReactBootStrap.NavDropdown.Item>
             <ReactBootStrap.NavDropdown.Divider />
