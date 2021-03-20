@@ -8,7 +8,7 @@ import NewMotocycle from "./components/NewMotocycle/NewMotocycle";
 import UpdateMotocycle from "./components/UpdateMotocycle/UpdateMotocycle";
 import MotocycleDetail from "./components/MotocycleDetail/MotocycleDetail";
 import AnonRoute from "./components/Routes/AnonRoute"
-
+import PrivateRoute from "./components/Routes/PrivateRoute"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Sigunp"
 import {Navbar}from "./components/Navbar/Navbar"

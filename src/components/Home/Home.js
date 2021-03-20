@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Honda from "./assets/Honda.jpg";
 import {Carousel} from "react-bootstrap"
-import BMW from "./assets/bmw.jpg";
+import BMW from "./assets/moto.jpg";
 import Chopper from "./assets/chopper2.jpeg";
 import Hdv from "./assets/HDV.jpeg"
 import "./Home.css";
@@ -14,7 +14,7 @@ const Home = () => {
     <Carousel>
   <Carousel.Item interval={1000}>
     <img
-      className="d-block w-100"
+      className="d-block w-100 "
       src={Chopper}
       alt="First slide"
     />
