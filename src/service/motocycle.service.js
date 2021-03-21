@@ -13,6 +13,6 @@ export const createMotocycle =(body)=> motocycleApi.post("/motocycles/create", b
 
 export const uploadFileService =(file)=>motocycleApi.post("/motocycles/upload", file)
 
-export const updateMotocycle =(motocycleId, body)=> motocycleApi.patch(`/motocycles/${motocycleId}`, body);
+export const updateMotocycle =(motocycleId, body)=> motocycleApi.put(`/motocycles/${motocycleId}`, body);
 
 export const deleteMotocycle =(motocycleId)=> motocycleApi.delete(`/motocycles/${motocycleId}`);
