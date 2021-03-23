@@ -1,7 +1,9 @@
 import React from "react";
 
 const Motocycle = () => {
-  return <> </>;
+  return <> 
+  my motocycles
+  </>;
 };
 
 export default Motocycle;

@@ -22,4 +22,10 @@
     z-index: 2;
   }
   
+  .ImageWrapper{
+    display: block;
+   width: 100% !important;
+  height: 80%;
+  position: relative;
+  }
   

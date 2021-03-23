@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
-import HomeImages from "./components/Home/HomeImages"
 import Motocycles from "./components/Motocycles/Motocycles";
 import NewMotocycle from "./components/NewMotocycle/NewMotocycle";
 import UpdateMotocycle from "./components/UpdateMotocycle/UpdateMotocycle";
@@ -23,15 +22,12 @@ function App() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/proof">
-        <HomeImages />
-      </Route>
       <Route exact path="/motocycles">
        <Motocycles />
       </Route>
-      <Route exact path="/motocycles/create">
+      <PrivateRoute exact path="/motocycles/create">
         <NewMotocycle />
-      </Route>
+      </PrivateRoute>
       <Route exact path="/motocycles/:motocycleId/update">
         <UpdateMotocycle />
       </Route>

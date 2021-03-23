@@ -2,8 +2,9 @@ import React from "react";
 import { useMotocycle } from "../../context/motocycleContext";
 import {uploadFileService} from "../../service/motocycle.service"
 const NewMotocycle = () => {
-  const initialState = { marca: "", modelo: "", image: "" };
+  const initialState = { marca: "", modelo: "", picture: "" };
   const [state, setState] = React.useState(initialState);
+  const [takeImage, settakeImage] = React.useState(initialState)
   const { createMotocycle } = useMotocycle();
 
   const handleUpload = async (e) => {
@@ -11,8 +12,9 @@ const NewMotocycle = () => {
 
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
-    await uploadFileService(uploadData);
-    setState(initialState);
+    const{data : cloudinaryUrl} =  await uploadFileService(uploadData);
+    console.log("data", cloudinaryUrl)
+    setState({...state, image : cloudinaryUrl});
   };
 
   return (
@@ -41,11 +43,29 @@ const NewMotocycle = () => {
           setState({ ...state, [target.name]: target.value })
         }
       />
-      <label htmlFor="image">Image:</label>
+       <label htmlFor="modelo">Motor:</label>
+      <input
+        type="text"
+        name="motor"
+        value={state.motor}
+        onChange={({ target }) =>
+          setState({ ...state, [target.name]: target.value })
+        }
+      />
+       <label htmlFor="modelo">Descripcion:</label>
+      <textarea
+        type="text"
+        name="description"
+        value={state.modelo}
+        onChange={({ target }) =>
+          setState({ ...state, [target.name]: target.value })
+        }
+      />
+      <label htmlFor="picture">Image:</label>
       <input
         type="file"
-        name="image"
-        value={state.image}
+        name="picture"
+        value={state.picture}
         onChange={handleUpload}
       />
       <button type="submit"> create </button>

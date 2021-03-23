@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Form.css";
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await auth.handleLogin(state);
+    console.log("State",state.email)
   };
 
   return (
@@ -47,8 +48,9 @@ const Login = () => {
           </div>
           <div className="control">
             <input type="submit" value="log in" />
+            <Link to="/signup"><h3>You don't have account?</h3></Link>
           </div>
-        </form>
+          </form>
       </div>
     </section>
   );

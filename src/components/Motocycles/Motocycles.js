@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as ReactBootCard from "react-bootstrap";
 import { useMotocycle } from "../../context/motocycleContext";
+import MotocycleCSS from "./Motocycles.module.css";
 
 const Motocycles = () => {
   const { motocycles, getMotocycles } = useMotocycle();
@@ -14,26 +15,16 @@ const Motocycles = () => {
       <h3>Motos</h3>
 
       {motocycles.map((motocycle) => (
-        <div key={motocycle._id}>
-          <ReactBootCard.CardDeck>
-            <ReactBootCard.Card>
-              <ReactBootCard.Card.Img variant="top" src={motocycle.image} />
-              <ReactBootCard.Card.Body>
-                <ReactBootCard.Card.Title>
-                  {motocycle.marca}
-                </ReactBootCard.Card.Title>
-                <ReactBootCard.Card.Text>
-                  {motocycle.description}
-                </ReactBootCard.Card.Text>
-              </ReactBootCard.Card.Body>
-              <ReactBootCard.Card.Footer>
-                <ReactBootCard.Nav.Link variant="primary">
-                  <Link to={`/motocycles/${motocycle._id}`}>More details</Link>
-                </ReactBootCard.Nav.Link>
-              </ReactBootCard.Card.Footer>
-            </ReactBootCard.Card>
-          </ReactBootCard.CardDeck>
-        </div>
+        
+          <div className="column" key={motocycle._id}>
+            <div className="card">
+              <img src={motocycle.image} width="70" height="230" />
+              <h1>{motocycle.marca}</h1>
+              <h3 className="tagline">{motocycle.modelo}</h3>
+              <p>{motocycle.description}</p>
+            </div>
+          </div>
+       
       ))}
     </>
   );
@@ -47,4 +38,13 @@ export default Motocycles;
           <p>Motor : {motocycle.motor}</p>
           <p>Description: {motocycle.description}</p>
            <Link to={`/motocycles/${motocycle._id}`}>More details</Link>
+
+            <div className="column" key={beer._id}>
+                <div className = "card" >
+                    <img src={beer.image_url} width="70" height="230" />
+                     <h1>{beer.name}</h1>
+                    <h3 className="tagline">{beer.tagline}</h3>
+                    <p ><b>Create By:</b> {beer.contributed_by}</p>
+                </div>
+                </div>
           */

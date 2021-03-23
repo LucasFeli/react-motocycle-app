@@ -72,8 +72,9 @@ h1{
     text-align: center;
 }
 
-.control h3{
-    font-family:  'Fjalla One', sans-serif; 
+.control h3 {
+    font-family:  'Fjalla One', sans-serif;
+    color: #222; 
 }
 
 
