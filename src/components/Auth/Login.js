@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Link, Redirect } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./Form.css";
 
 const Login = () => {

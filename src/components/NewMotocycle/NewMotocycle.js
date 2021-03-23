@@ -4,7 +4,7 @@ import {uploadFileService} from "../../service/motocycle.service"
 const NewMotocycle = () => {
   const initialState = { marca: "", modelo: "", picture: "" };
   const [state, setState] = React.useState(initialState);
-  const [takeImage, settakeImage] = React.useState(initialState)
+  //const [takeImage, settakeImage] = React.useState(initialState)
   const { createMotocycle } = useMotocycle();
 
   const handleUpload = async (e) => {

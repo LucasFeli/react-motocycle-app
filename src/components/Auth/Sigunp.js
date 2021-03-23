@@ -1,6 +1,6 @@
 import React from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Redirect } from "react-router-dom";
+
 import "./Form.css";
 
 const Signup = ({ onSubmit }) => {
@@ -10,7 +10,7 @@ const Signup = ({ onSubmit }) => {
     email: "",
     password: "",
   });
-  const [redirect, setRedirect] = React.useState(false);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setState({ ...state, [name]: value });

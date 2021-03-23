@@ -11,7 +11,8 @@ import PrivateRoute from "./components/Routes/PrivateRoute"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Sigunp"
 import {Navbar}from "./components/Navbar/Navbar"
-import Logout from "./components/Auth/Logout"
+
+import MyMotocycles from "./components/My Motocycles/MyMotocycles"
 
 
 function App() {
@@ -22,15 +23,18 @@ function App() {
       <Route exact path="/">
         <Home />
       </Route>
+      <Route exact path="/myMotocicles">
+        <MyMotocycles />
+      </Route>
       <Route exact path="/motocycles">
        <Motocycles />
       </Route>
       <PrivateRoute exact path="/motocycles/create">
         <NewMotocycle />
       </PrivateRoute>
-      <Route exact path="/motocycles/:motocycleId/update">
+      <PrivateRoute exact path="/motocycles/:motocycleId/update">
         <UpdateMotocycle />
-      </Route>
+      </PrivateRoute>
       <Route exact path="/motocycles/:motocycleId">
         <MotocycleDetail />
       </Route>

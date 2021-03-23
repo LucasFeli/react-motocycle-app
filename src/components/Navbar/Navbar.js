@@ -2,8 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Auth/Logout";
 import * as ReactBootStrap from "react-bootstrap";
+import { getLocalUser } from "../../context/AuthContext.utils";
 
 export function Navbar() {
+  const [user, setUser] = React.useState("");
+  const getUserInfo = () => {
+    setUser(getLocalUser());
+  };
+  React.useEffect(() => {
+    getUserInfo();
+  }, []);
+  
+
+  console.log("user", user)
   return (
     <ReactBootStrap.Navbar
       collapseOnSelect
@@ -28,16 +39,20 @@ export function Navbar() {
             <ReactBootStrap.NavDropdown.Item>
               <Link to="/motocycles">List of Motocycles</Link>
             </ReactBootStrap.NavDropdown.Item>
-             <ReactBootStrap.NavDropdown.Item>
+            <ReactBootStrap.NavDropdown.Item>
               <Link to="/motocycles/create">Create your Motocycle</Link>
             </ReactBootStrap.NavDropdown.Item>
             <ReactBootStrap.NavDropdown.Divider />
           </ReactBootStrap.NavDropdown>
+          <ReactBootStrap.Navbar.Text>
+            Signed in as: {user.username}
+          </ReactBootStrap.Navbar.Text>
         </ReactBootStrap.Nav>
         <ReactBootStrap.Nav>
           <ReactBootStrap.Nav.Link>
             <Link to="/login"></Link>
           </ReactBootStrap.Nav.Link>
+        
           <Logout />
         </ReactBootStrap.Nav>
       </ReactBootStrap.Navbar.Collapse>

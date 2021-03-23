@@ -23,7 +23,7 @@ function MotocycleProvider({ children }) {
 
   const updateMotocycle = async(motocycleId, motocycle )=> {
     const {data:updatedMotocycle} = await updateMotocycleService (motocycleId, motocycle )
-   // setMotocycles(())
+    setMotocycles((updatedMotocycle))
 
   }
 

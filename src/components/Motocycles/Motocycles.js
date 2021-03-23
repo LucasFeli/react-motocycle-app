@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as ReactBootCard from "react-bootstrap";
+import {Link } from "react-router-dom";
 import { useMotocycle } from "../../context/motocycleContext";
-import MotocycleCSS from "./Motocycles.module.css";
+
 
 const Motocycles = () => {
   const { motocycles, getMotocycles } = useMotocycle();
-  console.log("motocycles", motocycles);
+ 
   React.useEffect(() => {
     getMotocycles();
   }, []);
@@ -18,13 +17,14 @@ const Motocycles = () => {
         
           <div className="column" key={motocycle._id}>
             <div className="card">
-              <img src={motocycle.image} width="70" height="230" />
+              <img src={motocycle.image} alt="motocycle" width="70" height="230" />
               <h1>{motocycle.marca}</h1>
               <h3 className="tagline">{motocycle.modelo}</h3>
-              <p>{motocycle.description}</p>
+              <Link to={`/motocycles/${motocycle._id}`}>More details</Link>
             </div>
+            
           </div>
-       
+        
       ))}
     </>
   );
