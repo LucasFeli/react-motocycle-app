@@ -1,62 +1,97 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import { Button } from '../Navbar/Button.js'
 import { Link } from "react-router-dom";
 import Logout from "../Auth/Logout";
 import * as ReactBootStrap from "react-bootstrap";
 import { getLocalUser } from "../../context/AuthContext.utils";
+import "./TestC.css"
 
 export function Navbar() {
   const [user, setUser] = React.useState("");
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  React.useEffect(() => {
+    showButton();
+    getUserInfo();
+  }, []);
+
+  window.addEventListener("resize", showButton);
+
   const getUserInfo = () => {
     setUser(getLocalUser());
   };
-  React.useEffect(() => {
-    getUserInfo();
-  }, []);
-  
 
-  console.log("user", user)
+
+  console.log("user", user);
   return (
-    <ReactBootStrap.Navbar
-      collapseOnSelect
-      expand="lg"
-      bg="dark"
-      variant="dark"
-    >
-      <ReactBootStrap.Navbar.Brand href="/">Home</ReactBootStrap.Navbar.Brand>
-      <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-        <ReactBootStrap.Nav className="mr-auto">
-          <ReactBootStrap.Nav.Link>
-            <Link to="/signup">Signup</Link>
-          </ReactBootStrap.Nav.Link>
-          <ReactBootStrap.Nav.Link>
-            <Link to="/login">Login</Link>
-          </ReactBootStrap.Nav.Link>
-          <ReactBootStrap.NavDropdown
-            title="Motocycle Menu"
-            id="collasible-nav-dropdown"
-          >
-            <ReactBootStrap.NavDropdown.Item>
-              <Link to="/motocycles">List of Motocycles</Link>
-            </ReactBootStrap.NavDropdown.Item>
-            <ReactBootStrap.NavDropdown.Item>
-              <Link to="/motocycles/create">Create your Motocycle</Link>
-            </ReactBootStrap.NavDropdown.Item>
-            <ReactBootStrap.NavDropdown.Divider />
-          </ReactBootStrap.NavDropdown>
-          <ReactBootStrap.Navbar.Text>
-            Signed in as: {user.username}
-          </ReactBootStrap.Navbar.Text>
-        </ReactBootStrap.Nav>
-        <ReactBootStrap.Nav>
-          <ReactBootStrap.Nav.Link>
-            <Link to="/login"></Link>
-          </ReactBootStrap.Nav.Link>
-        
-          <Logout />
-        </ReactBootStrap.Nav>
-      </ReactBootStrap.Navbar.Collapse>
-    </ReactBootStrap.Navbar>
+    <div>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <Link to="/" className="navbar-logo">
+            MTCF <i className="fas fa-typo3    " />
+          </Link>
+          <div className="menu-icon" onClick={handleClick}>
+            <i className={click ? "fas fa-times" : "fas fa-bars "} />
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/motocycles"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                List of Motocycles
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/motocycles/create"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Create your Motocycle
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/signup"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Signup
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+                Login
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+                <Logout />
+              </Link>
+            </li>
+          </ul>
+          {button && <Button buttonStyle="btn--outline">SING UP</Button>}
+        </div>
+      </nav>
+    </div>
   );
 }
 /*

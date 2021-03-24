@@ -1,14 +1,13 @@
 import React  from "react";
 import {Carousel} from "react-bootstrap"
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import Chopper from "./assets/chopper2.jpeg";
 import Chopper2 from "./assets/chopper.jpeg";
 import Hdv from "./assets/HDV.jpeg"
 import Honda from "./assets/Honda.jpg"
 import BMW from "./assets/bmw.jpg"
+import {Footer} from "../Footer/Footer"
 
 import "./Home.css";
 
@@ -55,6 +54,7 @@ const Home = () => {
   />
   </Carousel.Item>
 </Carousel>
+    
     </div>
   );
 }

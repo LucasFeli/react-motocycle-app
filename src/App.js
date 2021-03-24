@@ -11,8 +11,9 @@ import PrivateRoute from "./components/Routes/PrivateRoute"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Sigunp"
 import {Navbar}from "./components/Navbar/Navbar"
-
+import {TestC} from "./components/TestComponent/TestC"
 import MyMotocycles from "./components/My Motocycles/MyMotocycles"
+import {Footer} from "./components/Footer/Footer"
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
     <div className="App">
       <Navbar/>
       <Switch>
+      <Route exact path="/test">
+        <TestC />
+      </Route>
       <Route exact path="/">
         <Home />
       </Route>
@@ -45,6 +49,7 @@ function App() {
         <Login/>
       </AnonRoute>
       </Switch>
+      <Footer/>
     </div>
   );
 }
