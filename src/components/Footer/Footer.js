@@ -10,32 +10,32 @@ export const Footer = () => {
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>About Us</h2>
-            <Link >How it works</Link>
-             <Link >Investors</Link>
-            <Link >Terms of Service</Link>
+            <Link to='/sign-up'>How it works</Link>
+             <Link to='/'>Investors</Link>
+            <Link to='/'>Terms of Service</Link>
           </div>
           
         </div>
         <div className='footer-link-wrapper'>
           <div className='footer-link-items'>
             <h2>Videos</h2>
-            <Link >Submit Video</Link>
-            <Link >Ambassadors</Link>
+            <Link to='/'>Submit Video</Link>
+            <Link to='/'>Ambassadors</Link>
             
           </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>
-            <Link >Instagram</Link>
-            <Link >Facebook</Link>
-            <Link >Youtube</Link>
-            <Link >Twitter</Link>
+            <Link to='/'>Instagram</Link>
+            <Link to='/'>Facebook</Link>
+            <Link to='/'>Youtube</Link>
+            <Link to='/'>Twitter</Link>
           </div>
         </div>
       </div>
             <section className='social-media'>
         <div className='social-media-wrap'>
           <div className='footer-logo'>
-            <Link  className='social-logo'>
+            <Link to='/'  className='social-logo'>
             MTCF
                <i className="fas fa-typo3    "/>
             </Link>
@@ -44,7 +44,7 @@ export const Footer = () => {
           <div className='social-icons'>
             <Link
               className='social-icon-link facebook'
-              
+              to='/'
               target='_blank'
               aria-label='Facebook'
             >
@@ -52,7 +52,7 @@ export const Footer = () => {
             </Link>
             <Link
               className='social-icon-link instagram'
-              
+              to='/'
               target='_blank'
               aria-label='Instagram'
             >
@@ -60,7 +60,7 @@ export const Footer = () => {
             </Link>
             <Link
               className='social-icon-link youtube'
-              
+              to='/'
               target='_blank'
               aria-label='Youtube'
             >
@@ -68,7 +68,7 @@ export const Footer = () => {
             </Link>
             <Link
               className='social-icon-link twitter'
-              
+              to='/'
               target='_blank'
               aria-label='Twitter'
             >
@@ -76,7 +76,7 @@ export const Footer = () => {
             </Link>
             <Link
               className='social-icon-link twitter'
-              
+              to='/'
               target='_blank'
               aria-label='LinkedIn'
             >

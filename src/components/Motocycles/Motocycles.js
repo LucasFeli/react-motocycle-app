@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useMotocycle } from "../../context/motocycleContext";
+import {SearchBar} from "../Search/Search"
 import * as ReactBootStrap from "react-bootstrap";
 import "./Motocycles.css";
 
@@ -8,6 +9,8 @@ import "./Motocycles.css";
 
 const Motocycles = () => {
   const { motocycles, getMotocycles } = useMotocycle();
+  const [query, setQuery] = React.useState("")
+  const handleQuery = ({target}) => setQuery(target.value)
 
   React.useEffect(() => {
     getMotocycles();
@@ -15,19 +18,20 @@ const Motocycles = () => {
   return (
     <>
       <h3>Motos</h3>
-
-      {motocycles.map((motocycle) => (
-        <div  key={motocycle._id}>
+    <SearchBar query={query} onChange={handleQuery}/>
+    
+      {motocycles.filter(motocycle => motocycle.marca.toLowerCase().includes(query.toLowerCase())).map((motocycle) => (
+       
+       <div  key={motocycle._id}>
           <ReactBootStrap.Col>
             <ReactBootStrap.Card style={{ width: "60rem" }}>
               <ReactBootStrap.Card.Img variant="top" src={motocycle.image} />
               <ReactBootStrap.Card.Body>
                 <ReactBootStrap.Card.Title>
-                  Card Title
+                 {motocycle.marca}
                 </ReactBootStrap.Card.Title>
                 <ReactBootStrap.Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <p>Description: {motocycle.description}</p>
                 </ReactBootStrap.Card.Text>
                 <ReactBootStrap.Button variant="primary">
                 <Link to={`/motocycles/${motocycle._id}`}>More details</Link>

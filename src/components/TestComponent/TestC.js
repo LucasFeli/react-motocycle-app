@@ -28,7 +28,7 @@ export const TestC = () => {
         <div>
             <nav className="navbar">
             <div className = "navbar-container">
-            <Link to="/" className="navbar-logo">
+            <Link  className="navbar-logo">
                 MTCF <i className="fas fa-typo3    "/>
             </Link>
             <div className="menu-icon" onClick={handleClick}>
@@ -36,7 +36,7 @@ export const TestC = () => {
             </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                 <li className="nav-item">
-                    <Link to="/" className="nav-links" onClick={closeMobileMenu}>Home</Link>
+                    <Link  className="nav-links" onClick={closeMobileMenu}>Home</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/motocycles" className="nav-links" onClick={closeMobileMenu}>List of Motocycles</Link>

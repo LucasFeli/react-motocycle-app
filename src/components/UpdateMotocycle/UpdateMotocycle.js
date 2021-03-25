@@ -20,7 +20,7 @@ const MotocycleUpdate = () => {
         e.preventDefault();
         await updateMotocycle(motocycleId,update);
         
-        push(`/motocycles/${motocycleId}`);
+        push(`/myMotocicles`);
       }}
     >
       <div className="control">

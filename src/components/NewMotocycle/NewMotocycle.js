@@ -69,7 +69,7 @@ const NewMotocycle = () => {
       <textarea rows="4" cols="48"
         type="text"
         name="description"
-        value={state.modelo}
+        value={state.description}
         onChange={({ target }) =>
           setState({ ...state, [target.name]: target.value })
         }

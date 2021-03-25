@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import Logout from "../Auth/Logout";
-
 import { getLocalUser } from "../../context/AuthContext.utils";
 import "./TestC.css"
 
