@@ -4,7 +4,7 @@ import {uploadFileService} from "../../service/motocycle.service"
 import "./NewMotocycle.css"
 
 const NewMotocycle = () => {
-  const initialState = { marca: "", modelo: "", picture: "" };
+  const initialState = { marca: "", modelo: "",motor:"",descripcion:"", picture: "" };
   const [state, setState] = React.useState(initialState);
   //const [takeImage, settakeImage] = React.useState(initialState)
   const { createMotocycle } = useMotocycle();
@@ -53,7 +53,7 @@ const NewMotocycle = () => {
       />
       </div>
        <div className="control">
-       <label htmlFor="modelo"><h3>Motor:</h3></label>
+       <label htmlFor="motor"><h3>Motor:</h3></label>
       <input
         type="text"
         name="motor"
@@ -65,7 +65,7 @@ const NewMotocycle = () => {
       </div>
 
        <div className="control">
-       <label htmlFor="modelo"><h3>Descripcion:</h3></label>
+       <label htmlFor="descripcion"><h3>Descripcion:</h3></label>
       <textarea rows="4" cols="48"
         type="text"
         name="description"

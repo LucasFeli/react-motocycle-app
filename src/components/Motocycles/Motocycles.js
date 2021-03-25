@@ -17,10 +17,9 @@ const Motocycles = () => {
       <h3>Motos</h3>
 
       {motocycles.map((motocycle) => (
-        <div className="column" key={motocycle._id}>
-        
-            <ReactBootStrap.Col>
-            <ReactBootStrap.Card style={{ width: "40rem" }}>
+        <div  key={motocycle._id}>
+          <ReactBootStrap.Col>
+            <ReactBootStrap.Card style={{ width: "60rem" }}>
               <ReactBootStrap.Card.Img variant="top" src={motocycle.image} />
               <ReactBootStrap.Card.Body>
                 <ReactBootStrap.Card.Title>

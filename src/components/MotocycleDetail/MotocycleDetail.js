@@ -1,9 +1,9 @@
 import React from "react";
 import * as ReactBootStrap from "react-bootstrap";
-
 import { useParams, Link, useHistory } from "react-router-dom";
-
 import { deleteMotocycle, getMotocycle } from "../../service/motocycle.service";
+
+
 const MotocycleDetail = () => {
   const [motocycle, setMotocycle] = React.useState({});
   const { push } = useHistory();
