@@ -1,6 +1,8 @@
 import React from "react";
 import { useMotocycle } from "../../context/motocycleContext";
 import {uploadFileService} from "../../service/motocycle.service"
+import "./NewMotocycle.css"
+
 const NewMotocycle = () => {
   const initialState = { marca: "", modelo: "", picture: "" };
   const [state, setState] = React.useState(initialState);
@@ -18,6 +20,9 @@ const NewMotocycle = () => {
   };
 
   return (
+    <section className="fondo-new">
+    <div className="container-new">
+    <h1>Create Your Motocycle</h1>
     <form
       onSubmit={async (e) => {
         e.preventDefault();
@@ -25,7 +30,8 @@ const NewMotocycle = () => {
         setState(initialState);
       }}
     >
-      <label htmlFor="marca">Marca:</label>
+      <div className="control">
+      <label htmlFor="marca"><h3>Marca:</h3></label>
       <input
         type="text"
         name="marca"
@@ -34,7 +40,9 @@ const NewMotocycle = () => {
           setState({ ...state, [target.name]: target.value })
         }
       />
-      <label htmlFor="modelo">Modelo:</label>
+      </div>
+       <div className="control">
+      <label htmlFor="modelo"><h3>Modelo:</h3></label>
       <input
         type="number"
         name="modelo"
@@ -43,7 +51,9 @@ const NewMotocycle = () => {
           setState({ ...state, [target.name]: target.value })
         }
       />
-       <label htmlFor="modelo">Motor:</label>
+      </div>
+       <div className="control">
+       <label htmlFor="modelo"><h3>Motor:</h3></label>
       <input
         type="text"
         name="motor"
@@ -52,8 +62,11 @@ const NewMotocycle = () => {
           setState({ ...state, [target.name]: target.value })
         }
       />
-       <label htmlFor="modelo">Descripcion:</label>
-      <textarea
+      </div>
+
+       <div className="control">
+       <label htmlFor="modelo"><h3>Descripcion:</h3></label>
+      <textarea rows="4" cols="48"
         type="text"
         name="description"
         value={state.modelo}
@@ -61,15 +74,22 @@ const NewMotocycle = () => {
           setState({ ...state, [target.name]: target.value })
         }
       />
-      <label htmlFor="picture">Image:</label>
+      </div>
+       <div className="control">
+      <label htmlFor="picture"><h3>Image:</h3></label>
       <input
         type="file"
         name="picture"
         value={state.picture}
         onChange={handleUpload}
       />
-      <button type="submit"> create </button>
+      </div>
+      <div className="control">
+      <input type="submit" value="Add" />
+      </div>
     </form>
+    </div>
+    </section>
   );
 };
 

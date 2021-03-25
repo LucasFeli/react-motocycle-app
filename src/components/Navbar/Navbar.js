@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from "react";
-import { Button } from '../Navbar/Button.js'
 import { Link } from "react-router-dom";
 import Logout from "../Auth/Logout";
-import * as ReactBootStrap from "react-bootstrap";
+
 import { getLocalUser } from "../../context/AuthContext.utils";
 import "./TestC.css"
 
@@ -33,7 +32,7 @@ export function Navbar() {
   };
 
 
-  console.log("user", user);
+
   return (
     <div>
       <nav className="navbar">
@@ -88,7 +87,7 @@ export function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">SING UP</Button>}
+          
         </div>
       </nav>
     </div>

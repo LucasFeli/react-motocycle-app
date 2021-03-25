@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMotocycle } from "../../context/motocycleContext";
 import * as ReactBootStrap from "react-bootstrap";
 import "./Motocycles.css";
-import { Footer } from "../Footer/Footer";
+
 
 
 const Motocycles = () => {

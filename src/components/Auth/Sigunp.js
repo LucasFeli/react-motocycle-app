@@ -3,7 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 import "./Form.css";
 
-const Signup = ({ onSubmit }) => {
+const Signup = () => {
   const auth = React.useContext(AuthContext);
   const [state, setState] = React.useState({
     username: "",
