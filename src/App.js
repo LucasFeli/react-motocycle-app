@@ -27,9 +27,9 @@ function App() {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/myMotocicles">
+      <PrivateRoute exact path="/myMotocicles">
         <MyMotocycles />
-      </Route>
+      </PrivateRoute>
       <Route exact path="/motocycles">
        <Motocycles />
       </Route>

@@ -11,20 +11,14 @@ export function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
+  
 
   React.useEffect(() => {
-    showButton();
+   
     getUserInfo();
   }, []);
 
-  window.addEventListener("resize", showButton);
+ 
 
   const getUserInfo = () => {
     setUser(getLocalUser());
@@ -73,6 +67,11 @@ export function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Signup
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/myMotocicles" className="nav-links" onClick={closeMobileMenu}>
+              My Motocicles
               </Link>
             </li>
             <li className="nav-item">
