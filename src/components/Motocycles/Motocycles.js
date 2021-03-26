@@ -23,6 +23,7 @@ const Motocycles = () => {
       {motocycles.filter(motocycle => motocycle.marca.toLowerCase().includes(query.toLowerCase())).map((motocycle) => (
        
        <div  key={motocycle._id}>
+         <div className="container">
           <ReactBootStrap.Col>
             <ReactBootStrap.Card style={{ width: "60rem" }}>
               <ReactBootStrap.Card.Img variant="top" src={motocycle.image} />
@@ -33,13 +34,13 @@ const Motocycles = () => {
                 <ReactBootStrap.Card.Text>
                 <p>Description: {motocycle.description}</p>
                 </ReactBootStrap.Card.Text>
-                <ReactBootStrap.Button variant="primary">
+                <ReactBootStrap.Button variant="outline-dark">
                 <Link to={`/motocycles/${motocycle._id}`}>More details</Link>
                 </ReactBootStrap.Button>
               </ReactBootStrap.Card.Body>
             </ReactBootStrap.Card>
             </ReactBootStrap.Col>
-         
+            </div>
         </div>
         
       ))}

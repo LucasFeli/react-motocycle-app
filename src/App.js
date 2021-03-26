@@ -14,6 +14,7 @@ import {Navbar}from "./components/Navbar/Navbar"
 import {TestC} from "./components/TestComponent/TestC"
 import MyMotocycles from "./components/My Motocycles/MyMotocycles"
 import {Footer} from "./components/Footer/Footer"
+import {GoodBye} from "./views/GoodBye/GoodBye"
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
       <Navbar/>
       <Switch>
       <Route exact path="/test">
-        <TestC />
+        <GoodBye />
       </Route>
       <Route exact path="/">
         <Home />

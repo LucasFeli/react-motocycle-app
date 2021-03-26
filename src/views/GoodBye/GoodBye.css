@@ -1,0 +1,22 @@
+
+
+.goodBye{
+    position: relative;
+    height: 100vh;
+    background: url("./Goodbye.jpg");
+    background-size: cover;
+    background-position: center center;
+   
+}
+
+.message{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    background-color: #242424;
+}
+
+.message h1{
+    color: #fff;
+}
+
