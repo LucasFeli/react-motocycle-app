@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await auth.handleLogin(state);
-    console.log("State",state.email)
+   
   };
 
   return (

@@ -11,7 +11,7 @@ import PrivateRoute from "./components/Routes/PrivateRoute"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Sigunp"
 import {Navbar}from "./components/Navbar/Navbar"
-import {TestC} from "./components/TestComponent/TestC"
+
 import MyMotocycles from "./components/My Motocycles/MyMotocycles"
 import {Footer} from "./components/Footer/Footer"
 import {GoodBye} from "./views/GoodBye/GoodBye"
@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <Switch>
-      <Route exact path="/test">
+      <Route exact path="/goodbye">
         <GoodBye />
       </Route>
       <Route exact path="/">

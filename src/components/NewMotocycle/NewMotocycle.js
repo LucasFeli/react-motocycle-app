@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import { useMotocycle } from "../../context/motocycleContext";
 import {uploadFileService} from "../../service/motocycle.service"
 import "./NewMotocycle.css"
@@ -10,13 +11,10 @@ const NewMotocycle = () => {
   const { createMotocycle } = useMotocycle();
 
   const handleUpload = async (e) => {
-    console.log("e.target", e.target.files[0]);
-
-    const uploadData = new FormData();
+     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     const{data : cloudinaryUrl} =  await uploadFileService(uploadData);
-    console.log("data", cloudinaryUrl)
-    setState({...state, image : cloudinaryUrl});
+     setState({...state, image : cloudinaryUrl});
   };
 
   return (
@@ -85,7 +83,7 @@ const NewMotocycle = () => {
       />
       </div>
       <div className="control">
-      <input type="submit" value="Add" />
+    <input type="submit" value="Add" />
       </div>
     </form>
     </div>

@@ -29,4 +29,12 @@ const MotocycleDetail = () => {
   );
 };
 
+
+
 export default MotocycleDetail;
+
+/*
+
+
+
+*/

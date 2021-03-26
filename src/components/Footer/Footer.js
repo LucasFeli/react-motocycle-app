@@ -8,22 +8,10 @@ export const Footer = () => {
       <div className="footer-links">
         <div className="footer-link-wrapper">
           <div className="footer-link-items">
-            <h2>About Us</h2>
-            <Link to="/">How it works</Link>
-            <Link to="/">Investors</Link>
-            <Link to="/">Terms of Service</Link>
-          </div>
+             <Link to="/"><h2>About Us</h2></Link>
+           </div>
         </div>
-        <div className="footer-link-wrapper">
-          
-          <div className="footer-link-items">
-            <h2>Social</h2>
-            <Link to="/">Instagram</Link>
-            <Link to="/">Facebook</Link>
-            <Link to="/">Youtube</Link>
-            <Link to="/">Twitter</Link>
-          </div>
-        </div>
+       
       </div>
       <section className="social-media">
         <div className="social-media-wrap">
@@ -35,6 +23,7 @@ export const Footer = () => {
           </div>
           <small className="website-rights">MTCF © 2020</small>
           <div className="social-icons">
+          <h6>En construccion</h6>
             <Link
               className="social-icon-link facebook"
               to="/"
@@ -69,8 +58,9 @@ export const Footer = () => {
             
               aria-label="LinkedIn"
             >
-              <i className="fab fa-linkedin" />
+              <i className="fab fa-linkedin" />  
             </Link>
+          
           </div>
         </div>
       </section>

@@ -20,39 +20,37 @@ const MyMotocycles = () => {
       setMotoId(result.data.myMotocycles)
       setUserId(result.data.username)
       
-      console.log("tarea", result.data)
+      
     }).catch((err) => {
       console.log(err)
     });
     
   }, []);
-  console.log("username", userId)
-  console.log("moto", motoId )
-
+  
   return (
     
     <> 
    {motoId.map((myMoto)=> 
    <div  key={myMoto._id}>
-     <ReactBootStrap.Col>
-            <ReactBootStrap.Card style={{ width: "60rem" }}>
-              <ReactBootStrap.Card.Img variant="top" src={myMoto.image} />
-              <ReactBootStrap.Card.Body>
-                <ReactBootStrap.Card.Title>
-                 {myMoto.marca}
-                </ReactBootStrap.Card.Title>
-                <ReactBootStrap.Card.Text>
-                <p>Description: {myMoto.description}</p>
-                </ReactBootStrap.Card.Text>
-                <ReactBootStrap.Button variant="primary">
-                <Link to={`/motocycles/${myMoto._id}`}>More details</Link>
-                </ReactBootStrap.Button>
-              </ReactBootStrap.Card.Body>
-            </ReactBootStrap.Card>
-            </ReactBootStrap.Col>
-            <button onClick={handleDelete}>Delete</button>
+     <div className="container mt-5">
+              <div className="card">
+                <div className="row">
+                  <div className="col-md-4">
+                    <img src={myMoto.image} className="img-fluid" />
+                  </div>
+                  <div className="col-md-8">
+                    <h2 className="card-title">{myMoto.marca}</h2>
+                    <p>{myMoto.description}</p>
+                    <button className="btn btn-outline-primary">
+                      <Link to={`/motocycles/${myMoto._id}`}>More details</Link>
+                       
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <button onClick={handleDelete}>Delete</button>
             <Link to={`/motocycles/${myMoto._id}/update`}>Update Moto</Link>
-         
+       </div>  
    </div>)}
     
   
@@ -64,3 +62,27 @@ const MyMotocycles = () => {
 };
 
 export default MyMotocycles;
+
+
+/*
+  <div className="container mt-5">
+              <div className="card">
+                <div className="row">
+                  <div className="col-md-4">
+                    <img src={myMoto.image} className="img-fluid" />
+                  </div>
+                  <div className="col-md-8">
+                    <h2 className="card-title">{myMoto.marca}</h2>
+                    <p>{myMoto.description}</p>
+                    <button className="btn btn-outline-primary">
+                      <Link to={`/motocycles/${myMoto._id}`}>More details</Link>
+                        More details
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button onClick={handleDelete}>Delete</button>
+            <Link to={`/motocycles/${myMoto._id}/update`}>Update Moto</Link>
+*/

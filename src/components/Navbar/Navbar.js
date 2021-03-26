@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logout from "../Auth/Logout";
 import { getLocalUser } from "../../context/AuthContext.utils";
 import { useAuth } from "../../context/AuthContext.utils";
-import "./TestC.css"
+import "./Navbar.css"
 
 export function Navbar() {
   const [user1, setUser1] = React.useState("");
@@ -71,7 +71,7 @@ export function Navbar() {
             </li>
 
             <li className="nav-item">
-              <Link to="/test" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/goodbye" className="nav-links" onClick={closeMobileMenu}>
                 <Logout />
               </Link>
             </li>

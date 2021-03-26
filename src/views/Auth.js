@@ -5,7 +5,7 @@ import AuthForm from "../components/Auth/Sigunp"
 
 function Auth() {
     const location = useLocation();
-    console.log("Location", location)
+   
    return <AuthForm btnText="login"/>
 }
 export default Auth
