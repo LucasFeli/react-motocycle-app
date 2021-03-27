@@ -6,11 +6,7 @@ export const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-links">
-        <div className="footer-link-wrapper">
-          <div className="footer-link-items">
-             <Link to="/"><h2>About Us</h2></Link>
-           </div>
-        </div>
+       
        
       </div>
       <section className="social-media">

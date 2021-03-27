@@ -15,9 +15,9 @@ const Motocycles = () => {
   }, []);
   return (
     <>
-      <h3>Motos</h3>
+     <div className="container">
       <SearchBar query={query} onChange={handleQuery} />
-
+      </div>
       {motocycles
         .filter((motocycle) =>
           motocycle.marca.toLowerCase().includes(query.toLowerCase())

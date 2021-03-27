@@ -6,24 +6,8 @@
     background: url("./Bye.jpeg");
     background-size: cover;
     background-position: center center;
+    margin-top: 0px;
    
 }
 
-.message{
-    position: absolute;
-    top: 5%;
-    left: 30%;
-    
-    background-color: #242424;
-    
-}
 
-.message h1{
-    color: #fff;
-}
-
-@media screen and (max-width: 960px) {
-    .SectionItems {
-      position: relative;
-    }
-}

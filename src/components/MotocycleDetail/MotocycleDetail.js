@@ -19,13 +19,23 @@ const MotocycleDetail = () => {
 
   return (
     <div key={motocycle._id}>
-      <p>Marca: {motocycle.marca}</p>
-      <p>Modelo : {motocycle.modelo}</p>
-      <p>Motor : {motocycle.motor}</p>
-      <p>{motocycle.description}</p>
-  
-      <button onClick={handleDelete}>Delete</button>
-    </div>
+      <div className = "container mt-5">
+      <div className = "card">
+ 
+ <img src ={motocycle.image} className="img-fluid" />
+ <div className="card-body">
+ <h3 className="card-title">{motocycle.marca}</h3>
+ <p className="card-text">{motocycle.description} </p>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Modelo: {motocycle.modelo}</li>
+    <li className="list-group-item">Motor: {motocycle.motor}</li>
+  </ul>
+  <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+ </div>
+ </div>
+ </div>
+</div>
+    
   );
 };
 
@@ -35,6 +45,23 @@ export default MotocycleDetail;
 
 /*
 
+<div className = "container mt-5">
+ <div className = "card">
+ 
+ <img src ="{motocycle.image}" className="img-fluid">
+ <div className="card-body">
+ <h3 className="card-title">{motocycle.marca}</h3>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Modelo: {motocycle.modelo}</li>
+    <li className="list-group-item">Motor: {motocycle.motor}</li>
+  </ul>
+  <p className="card-text">{motocycle.description} </p>
+
+ <button className="btn btn-btn-danger" onClick={handleDelete}>Delete</button>
+ </div>
+ </div>
+
+</div>
 
 
 */
