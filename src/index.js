@@ -12,7 +12,7 @@ import reportWebVitals from "./reportWebVitals";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary"
 
 ReactDOM.render(
-  
+  <React.StrictMode>
     <Router>
       <MotocycleProvider>
       <AuthProvider>
@@ -21,8 +21,8 @@ ReactDOM.render(
           </ErrorBoundary>
          </AuthProvider>
       </MotocycleProvider>
-    </Router>,
-  
+    </Router>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

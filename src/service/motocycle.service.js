@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const motocycleApi = axios.create({
-  baseURL: process.env.REACT_APP_API,
+  baseURL: process.env.REACT_APP_API + "/motocycles",
   withCredentials: true,
 });
 
