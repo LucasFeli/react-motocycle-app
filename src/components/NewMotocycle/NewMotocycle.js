@@ -13,15 +13,18 @@ const NewMotocycle = () => {
     picture: "",
   };
   const [state, setState] = React.useState(initialState);
-  //const [takeImage, settakeImage] = React.useState(initialState)
+  const [takeImage, settakeImage] = React.useState(false)
   const { createMotocycle } = useMotocycle();
 
   const handleUpload = async (e) => {
+    settakeImage(false)
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     console.log("image", e.target.files[0]);
     const { data: cloudinaryUrl } = await uploadFileService(uploadData);
+    console.log("data", cloudinaryUrl)
     setState({ ...state, image: cloudinaryUrl });
+    settakeImage(true)
   };
 
   return (
@@ -102,7 +105,8 @@ const NewMotocycle = () => {
             />
           </div>
           <div className="control">
-            <input type="submit" value="Add" />
+           
+            <button type="submit" value="Add" disabled= {!takeImage}>Add</button>
           </div>
         </form>
       </div>

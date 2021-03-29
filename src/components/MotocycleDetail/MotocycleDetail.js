@@ -7,10 +7,7 @@ const MotocycleDetail = () => {
   const [motocycle, setMotocycle] = React.useState({});
   const { push } = useHistory();
   const { motocycleId } = useParams();
-  const handleDelete = async () => {
-    await deleteMotocycle(motocycle._id);
-    push("/motocycles");
-  };
+
   React.useEffect(() => {
     getMotocycle(motocycleId).then(({ data: motocycle }) =>
       setMotocycle(motocycle)

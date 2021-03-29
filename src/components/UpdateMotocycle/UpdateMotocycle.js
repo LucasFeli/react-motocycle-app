@@ -1,22 +1,30 @@
 import React from "react";
 import { useMotocycle } from "../../context/motocycleContext";
-import {uploadFileService} from "../../service/motocycle.service"
-import { useParams,useHistory } from "react-router-dom";
+import { useParams,useHistory} from "react-router-dom";
+import { uploadFileService } from "../../service/motocycle.service";
+
 import "./UpdateMotocycle.css"
+
 const MotocycleUpdate = () => {
   const initialState = { marca: "", modelo: "",motor:"",descripcion:"", picture: "" };
   const [update, setUpdate] = React.useState(initialState);
+  const [takeImage, settakeImage] = React.useState(false)
 
   const { updateMotocycle } = useMotocycle();
   const { motocycleId } = useParams();
   const {push} = useHistory()
   const handleUpload = async (e) => {
+    settakeImage(false)
     const uploadData = new FormData();
    uploadData.append("image", e.target.files[0]);
    console.log("image", e.target.files[0])
    const{data : cloudinaryUrl} =  await uploadFileService(uploadData);
    setUpdate({...update, image : cloudinaryUrl});
+   settakeImage(true)
  };
+
+ 
+
 
   return (
     <section className="fondo-update">
@@ -69,7 +77,7 @@ const MotocycleUpdate = () => {
       <textarea rows="4" cols="48"
         type="text"
         name="description"
-        value={update.modelo}
+        value={update.description}
         onChange={({ target }) =>
         setUpdate({ ...update, [target.name]: target.value })
         }
@@ -84,9 +92,10 @@ const MotocycleUpdate = () => {
       />
       </div>
 
+
         </div>
         <div className="control">
-      <input type="submit" value="Update" />
+        <button type="submit" value="Add" disabled= {!takeImage} >Add</button>
       </div>
    
     </form>
