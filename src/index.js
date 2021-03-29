@@ -9,17 +9,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AuthProvider from "./context/AuthContext";
 import MotocycleProvider from "./context/motocycleContext";
 import reportWebVitals from "./reportWebVitals";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary"
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Router>
       <MotocycleProvider>
       <AuthProvider>
+        <ErrorBoundary>
           <App />
+          </ErrorBoundary>
          </AuthProvider>
       </MotocycleProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
+  
   document.getElementById("root")
 );
 

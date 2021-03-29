@@ -11,10 +11,11 @@ import PrivateRoute from "./components/Routes/PrivateRoute"
 import Login from "./components/Auth/Login"
 import Signup from "./components/Auth/Sigunp"
 import {Navbar}from "./components/Navbar/Navbar"
-
+import {PageError} from "../src/views/PageError/PageError"
 import MyMotocycles from "./components/My Motocycles/MyMotocycles"
 import {Footer} from "./components/Footer/Footer"
 import {GoodBye} from "./views/GoodBye/GoodBye"
+
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <Switch>
+       
       <Route exact path="/goodbye">
         <GoodBye />
       </Route>
@@ -49,6 +51,9 @@ function App() {
       <AnonRoute exact path="/login">
         <Login/>
       </AnonRoute>
+      <Route path="*">
+           <PageError/>
+      </Route>
       </Switch>
       <Footer/>
     </div>

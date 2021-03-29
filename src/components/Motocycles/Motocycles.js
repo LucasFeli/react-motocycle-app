@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useMotocycle } from "../../context/motocycleContext";
 import { SearchBar } from "../Search/Search";
-import * as ReactBootStrap from "react-bootstrap";
+
 import "./Motocycles.css";
 
 const Motocycles = () => {
@@ -28,7 +28,7 @@ const Motocycles = () => {
               <div className="card">
                 <div className="row">
                   <div className="col-md-4">
-                    <img src={motocycle.image} className="img-fluid" />
+                    <img src={motocycle.image} className="img-fluid" alt="this is a moto "/>
                   </div>
                   <div className="col-md-8">
                     <h2 className="card-title">{motocycle.marca}</h2>

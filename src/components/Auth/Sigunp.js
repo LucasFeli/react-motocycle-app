@@ -3,8 +3,12 @@ import { AuthContext } from "../../context/AuthContext";
 
 import "./Form.css";
 
+const createUser = () =>
+new Promise((res, rej) => setTimeout(() => rej("user already exist"), 1000));
+
 const Signup = () => {
   const auth = React.useContext(AuthContext);
+  const [warning, setWarning] = React.useState(false)
   const [state, setState] = React.useState({
     username: "",
     email: "",
@@ -13,11 +17,17 @@ const Signup = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+   
     setState({ ...state, [name]: value });
   };
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    await auth.handleSignup(state);
+    
+      event.preventDefault();
+    
+      await auth.handleSignup(state);
+   
+  
   };
 
   return (
@@ -28,6 +38,7 @@ const Signup = () => {
           <div className="control">
             <label htmlFor="name">
               <h3>Username</h3>
+              
             </label>
             <input
               type="text"
@@ -64,6 +75,7 @@ const Signup = () => {
           <div className="control">
             <input type="submit" value="Sign up" />
           </div>
+       
         </form>
       </div>
     </section>
