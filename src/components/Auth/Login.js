@@ -48,7 +48,7 @@ const Login = () => {
           </div>
           <div className="control">
             <input type="submit" value="log in" />
-            <Link to="/signup"><h3>You don't have account?</h3></Link>
+            <p>Aun no tienes cuenta?</p><Link to="/signup"><h6>Registrate !</h6></Link>
           </div>
           </form>
       </div>
