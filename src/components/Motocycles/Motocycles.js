@@ -35,7 +35,7 @@ const Motocycles = () => {
                     <p>{motocycle.description}</p>
                     <button className="btn btn-outline-primary">
                       <Link to={`/motocycles/${motocycle._id}`}>
-                        More details
+                        Mas Detalles
                       </Link>
                     </button>
                   </div>

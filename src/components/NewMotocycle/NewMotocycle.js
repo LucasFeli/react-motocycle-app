@@ -30,7 +30,7 @@ const NewMotocycle = () => {
   return (
     <section className="fondo-new">
       <div className="container-new">
-        <h1>Create Your Motocycle</h1>
+        <h1>Agregar moto</h1>
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -59,7 +59,7 @@ const NewMotocycle = () => {
               type="number"
               name="modelo"
               min = "1900"
-              max = "2021"
+              max = "2023"
               value={state.modelo}
               onChange={({ target }) =>
                 setState({ ...state, [target.name]: target.value })
@@ -86,7 +86,7 @@ const NewMotocycle = () => {
             </label>
             <textarea
               rows="4"
-              cols="36"
+              cols="46"
               type="text"
               name="description"
               value={state.description}
@@ -97,7 +97,7 @@ const NewMotocycle = () => {
           </div>
           <div className="control">
             <label htmlFor="picture">
-              <h3>Image:</h3>
+              <h3>Imagen:</h3>
             </label>
             <input
               type="file"
@@ -108,7 +108,7 @@ const NewMotocycle = () => {
           </div>
           <div className="control">
            
-            <button type="submit" value="Add" disabled= {!takeImage}>Add</button>
+            <button type="submit" value="Add" disabled= {!takeImage}>Agregar</button>
           </div>
         </form>
       </div>

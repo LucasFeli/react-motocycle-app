@@ -5,7 +5,7 @@ export const SearchBar = ({query,onChange}) => {
     return (
         <div className="wrapper">
   
-        <input className="search" type="text" placeholder="Search. .."value={query} onChange={onChange} />
+        <input className="search" type="text" placeholder="Buscar Moto. .."value={query} onChange={onChange} />
         </div>
     )
 }

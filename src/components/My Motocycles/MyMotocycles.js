@@ -17,6 +17,7 @@ const MyMotocycles = () => {
   React.useEffect(() => {
     getUser()
       .then((result) => {
+        console.log("result", result);
         setMotoId(result.data.myMotocycles);
         setUserId(result.data.username);
       })
@@ -42,24 +43,25 @@ const MyMotocycles = () => {
                 <div className="col-md-8">
                   <h2 className="card-title">{myMoto.marca}</h2>
                   <p>{myMoto.description}</p>
-                  <button className="btn btn-outline-primary">
-                    <Link to={`/motocycles/${myMoto._id}`}>More details</Link>
+                  <button className="btn btn-outline-primary btn-sm">
+                    <Link to={`/motocycles/${myMoto._id}`}> Mas Detalles</Link>
+                  </button>
+
+                  <Link
+                    className="btn btn-outline-primary btn-sm"
+                    to={`/motocycles/${myMoto._id}/update`}
+                  >
+                    Modificar
+                  </Link>
+                  <button
+                    className="btn btn btn-outline-danger btn-sm"
+                    onClick={() => handleDelete(myMoto._id)}
+                  >
+                    Eliminar
                   </button>
                 </div>
               </div>
             </div>
-            <button
-              className="btn btn btn-outline-danger btn-sm"
-              onClick={() => handleDelete(myMoto._id)}
-            >
-              Delete
-            </button>
-            <Link
-              className="btn btn-outline-primary btn-sm"
-              to={`/motocycles/${myMoto._id}/update`}
-            >
-              Update Moto
-            </Link>
           </div>
         </div>
       ))}
@@ -69,25 +71,3 @@ const MyMotocycles = () => {
 
 export default MyMotocycles;
 
-/*
-  <div className="container mt-5">
-              <div className="card">
-                <div className="row">
-                  <div className="col-md-4">
-                    <img src={myMoto.image} className="img-fluid" />
-                  </div>
-                  <div className="col-md-8">
-                    <h2 className="card-title">{myMoto.marca}</h2>
-                    <p>{myMoto.description}</p>
-                    <button className="btn btn-outline-primary">
-                      <Link to={`/motocycles/${myMoto._id}`}>More details</Link>
-                        More details
-                      </Link>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button onClick={handleDelete}>Delete</button>
-            <Link to={`/motocycles/${myMoto._id}/update`}>Update Moto</Link>
-*/

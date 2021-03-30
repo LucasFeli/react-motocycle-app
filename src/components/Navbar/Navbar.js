@@ -45,7 +45,7 @@ export function Navbar() {
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
-                    List of Motorcycles
+                    Lista de Motocicletas
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -54,7 +54,7 @@ export function Navbar() {
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
-                    Create your Motorcycle
+                    Crear tu Motocicleta
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -63,7 +63,7 @@ export function Navbar() {
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
-                    My Motorcycles
+                    Mis Motocicletas
                   </Link>
                 </li>
 
@@ -85,7 +85,7 @@ export function Navbar() {
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
-                    List of Motocycles
+                     Lista de Motocicletas
                   </Link>
                 </li>
                 <li className="nav-item">

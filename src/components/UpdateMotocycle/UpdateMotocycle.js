@@ -29,7 +29,7 @@ const MotocycleUpdate = () => {
   return (
     <section className="fondo-update">
     <div className="container-update">
-    <h1>Update Your Motocycle</h1>
+    <h1>Modifique su Moto</h1>
 
     <form
       onSubmit={async (e) => {
@@ -55,6 +55,8 @@ const MotocycleUpdate = () => {
       <input
         type="number"
         name="modelo"
+        min = "1900"
+        max = "2023"
         value={update.modelo}
         onChange={({ target }) =>
           setUpdate({ ...update, [target.name]: target.value })
@@ -74,7 +76,7 @@ const MotocycleUpdate = () => {
       </div>
       <div className="control">
        <label htmlFor="descripcion"><h3>Descripcion:</h3></label>
-      <textarea rows="4" cols="48"
+      <textarea rows="4" cols="60"
         type="text"
         name="description"
         value={update.description}
@@ -83,7 +85,7 @@ const MotocycleUpdate = () => {
         }
       />
       <div className="control">
-      <label htmlFor="picture"><h3>Image:</h3></label>
+      <label htmlFor="picture"><h3>Imagen:</h3></label>
       <input
         type="file"
         name="picture"
@@ -95,7 +97,7 @@ const MotocycleUpdate = () => {
 
         </div>
         <div className="control">
-        <button type="submit" value="Add" disabled= {!takeImage} >Add</button>
+        <button type="submit" value="Add" disabled= {!takeImage} >Modificar</button>
       </div>
    
     </form>
