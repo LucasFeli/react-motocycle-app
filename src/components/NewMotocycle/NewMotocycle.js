@@ -58,6 +58,8 @@ const NewMotocycle = () => {
             <input
               type="number"
               name="modelo"
+              min = "1900"
+              max = "2021"
               value={state.modelo}
               onChange={({ target }) =>
                 setState({ ...state, [target.name]: target.value })
@@ -84,7 +86,7 @@ const NewMotocycle = () => {
             </label>
             <textarea
               rows="4"
-              cols="30"
+              cols="36"
               type="text"
               name="description"
               value={state.description}
