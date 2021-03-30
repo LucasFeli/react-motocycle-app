@@ -1,11 +1,11 @@
 import React from "react";
 
 import { useParams, useHistory } from "react-router-dom";
-import { deleteMotocycle, getMotocycle } from "../../service/motocycle.service";
+import { getMotocycle } from "../../service/motocycle.service";
 
 const MotocycleDetail = () => {
   const [motocycle, setMotocycle] = React.useState({});
-  const { push } = useHistory();
+
   const { motocycleId } = useParams();
 
   React.useEffect(() => {

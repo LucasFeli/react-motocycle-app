@@ -3,12 +3,10 @@ import { AuthContext } from "../../context/AuthContext";
 
 import "./Form.css";
 
-const createUser = () =>
-new Promise((res, rej) => setTimeout(() => rej("user already exist"), 1000));
+
 
 const Signup = () => {
   const auth = React.useContext(AuthContext);
-  const [warning, setWarning] = React.useState(false)
   const [state, setState] = React.useState({
     username: "",
     email: "",
@@ -37,7 +35,7 @@ const Signup = () => {
         <form onSubmit={handleSubmit}>
           <div className="control">
             <label htmlFor="name">
-              <h3>Username</h3>
+              <h3>Usuario</h3>
               
             </label>
             <input
@@ -62,7 +60,8 @@ const Signup = () => {
           </div>
           <div className="control">
             <label htmlFor="password">
-              <h3>Password</h3>
+              <h3>Contraseña</h3>
+              
             </label>
             <input
               type="password"
@@ -71,6 +70,7 @@ const Signup = () => {
               value={state.password}
               onChange={handleChange}
             />
+            <small> Minimo (6 Caracteres: 1 letra mayuscula, 1 numero)</small>
           </div>
           <div className="control">
             <input type="submit" value="Sign up" />

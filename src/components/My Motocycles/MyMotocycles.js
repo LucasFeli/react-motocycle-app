@@ -1,6 +1,6 @@
 import React from "react";
 import { getUser } from "../../service/auth.service";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import { deleteMotocycle } from "../../service/motocycle.service";
 import { useAuth } from "../../context/AuthContext.utils";
 

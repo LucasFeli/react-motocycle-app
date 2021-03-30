@@ -36,15 +36,16 @@ const Login = () => {
           </div>
           <div className="control">
             <label htmlFor="password">
-              <h3>Password</h3>
-            </label>
+              <h3>Contraseña</h3>
+               </label>
             <input
               type="password"
               name="password"
               id="password"
               value={state.password}
               onChange={handleChange}
-            />
+             />
+             <small> Minimo (6 Caracteres: 1 letra mayuscula, 1 numero)</small>
           </div>
           <div className="control">
             <input type="submit" value="log in" />
