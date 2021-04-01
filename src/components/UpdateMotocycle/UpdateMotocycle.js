@@ -52,6 +52,7 @@ const MotocycleUpdate = () => {
       </div>
       <div className="control">
       <label htmlFor="modelo"><h3>Modelo:</h3></label>
+      <small> (Entre los años 1900 a 2023)</small>
       <input
         type="number"
         name="modelo"
@@ -93,8 +94,6 @@ const MotocycleUpdate = () => {
         onChange={handleUpload}
       />
       </div>
-
-
         </div>
         <div className="control">
         <button type="submit" value="Add" disabled= {!takeImage} >Modificar</button>

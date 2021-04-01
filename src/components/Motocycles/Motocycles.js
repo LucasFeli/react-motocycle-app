@@ -12,7 +12,7 @@ const Motocycles = () => {
 
   React.useEffect(() => {
     getMotocycles();
-  }, []);
+  }, [motocycles]);
   return (
     <>
      <div className="container">

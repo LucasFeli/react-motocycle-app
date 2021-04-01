@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    color: #fff;
   }
   
   .navbar-container {
@@ -32,6 +33,7 @@
   .fa-typo3 {
     margin-left: 0.5rem;
     font-size: 1.8rem;
+    color: white;
   }
   
   .nav-menu {

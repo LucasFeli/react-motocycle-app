@@ -54,6 +54,7 @@ const NewMotocycle = () => {
           <div className="control">
             <label htmlFor="modelo">
               <h3>Modelo:</h3>
+              <small> (Entre los años 1900 a 2023)</small>
             </label>
             <input
               type="number"
